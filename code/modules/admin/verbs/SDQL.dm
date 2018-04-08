@@ -84,27 +84,27 @@
 			else
 				var/f2 = text2path(f)
 				if(text_starts_with(f, "/mob"))
-					for(var/mob/m in world)
+					for(var/mob/m in SSmobs.mob_list)
 						if(istype(m, f2))
 							from_objs += m
 
 				else if(text_starts_with(f, "/turf/space"))
-					for(var/turf/space/m in world)
+					for(var/turf/space/m)
 						if(istype(m, f2))
 							from_objs += m
 
 				else if(text_starts_with(f, "/turf/simulated"))
-					for(var/turf/simulated/m in world)
+					for(var/turf/simulated/m)
 						if(istype(m, f2))
 							from_objs += m
 
 				else if(text_starts_with(f, "/turf/unsimulated"))
-					for(var/turf/unsimulated/m in world)
+					for(var/turf/unsimulated/m)
 						if(istype(m, f2))
 							from_objs += m
 
 				else if(text_starts_with(f, "/turf"))
-					for(var/turf/m in world)
+					for(var/turf/m)
 						if(istype(m, f2))
 							from_objs += m
 
@@ -119,7 +119,7 @@
 							from_objs += m
 
 				else if(text_starts_with(f, "/obj/machinery"))
-					for(var/obj/machinery/m in world)
+					for(var/obj/machinery/m in SSmachines.machinery)
 						if(istype(m, f2))
 							from_objs += m
 
