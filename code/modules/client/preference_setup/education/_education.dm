@@ -1,71 +1,73 @@
-#define EDU_PRIMARY 	0x1
-#define EDU_SECONDARY 	0x2
-#define EDU_EXTRA		0x4
-#define EDU_SKILLS		0x8
-#define EDU_ENV			0x10
+// Болонский процесс - уровни образования
+#define EDU_ELEMENTARY		"Первичное образование"
+#define EDU_SECONDARY		"Вторичное образование"
+
+// Болонский процесс - профессиональное образование
+#define EDU_VOCATIONAL		"Профессиональное образование"
+
+// Болонский процесс - степени высшего профессионального образования
+#define EDU_BACHELOR		"Бакалавр"
+#define EDU_MASTER			"Магистр"
+#define EDU_DOCTOR			"Доктор"
+#define EDU_HAB_DOCTOR		"Хабилитированный Доктор"
+
+// ФГОС - уровни образования
+#define EDU_PRIMARY			"Начальное образование"
+#define EDU_COMMON 			"Общее образование"
+#define EDU_MEDIUM 			"Среднее общее образование"
+
+// ФГОС - профессиональное образование
+#define EDU_COMMON_PROF		"Начальное Профессиональное Образование"
+#define EDU_MEDIUM_PROF		"Среднее Профессиональное Образование"
+
+// ФГОС - степени высшего профессионального образования
+#define EDU_SPECIALIST		"Специалист"
+#define EDU_CANDIDATE		"Кандидат наук"
+#define EDU_DOCTOR_F		"Доктор наук"
 
 /datum/education
-	name = "education"
-	var/list/datum/edu/primary = list()
-	var/list/datum/edu/secondary = list()
+	var/name = "education"
+	var/list/datum/edu/basic = list()
 	var/list/datum/edu/extra = list()
-	var/list/datum/edu/skills = list()
-	var/list/datum/edu/env = list()
-	var/edu_points = 16
+
+	// Очки образования. Пока что фиксировано
+	var/edu_points = 25
+	var/extra_edu_points = 25
+
+	// Вычисление минимального возраста.
+	var/edu_point = 0
+	var/extra_edu_poing = 0
 
 /datum/edu
-	name = "high school"
-	var/desc = "полное среднее образование"
+	var/name = "blank"
+	var/desc = "пустое образование"
 	var/full_desc = ""
-	var/duration = 144
-	var/edu_points = 6
 
-	var/list/compatible_profs = list()
-	var/list/preset_skills = list()
+	var/edu_points = 0
+	var/extra_edu_points = 0
 
-	var/list/datum/edu/prim_reqs = list()
-	var/list/datum/edu/sec_reqs = list()
-	var/list/datum/edu/extra_reqs = list()
-	var/list/datum/edu/skills_reqs = list()
-	var/type = EDU_PRIMARY
+	var/list/min_age = list(SPECIES_HUMAN = 7)		// Минимальный возраст обучения
 
-/datum/edu/proc/compatible(datum/education/target)
-	for(var/datum/edu/ED in prim_reqs)
-		if(!target.primary.Find(ED))
+	var/list/profs = list()							// Открываемые профессии
+	var/list/preset_skills = list()					// Установленные навыки
+
+	var/list/datum/edu/prev = list()				// Необходимые предыдущие программы образования. После одного из них можно изучать эту.
+	var/list/datum/edu/reqs = list()				// Необходимые программы образования. Они нужны все.
+	var/degree										// Полученная степень образования. Для некоторых видов.
+	var/qualification								// Квалификация. Для всех.
+
+/datum/edu/proc/compatible(var/datum/education/target)
+	var/tmp/list/overall = target.basic | target.extra
+
+	if(!overall.len)
+		return 0
+
+	for(var/temp in prev)
+		if(overall.Find(temp))
+			return 1
+
+	for(var/temp in reqs)
+		if(!overall.Find(temp))
 			return 0
 
-	for(var/datum/edu/ED in sec_reqs)
-		if(!target.primary.Find(ED))
-			return 0
-
-	for(var/datum/edu/ED in extra_reqs)
-		if(!target.primary.Find(ED))
-			return 0
-
-	for(var/datum/edu/ED in skills_reqs)
-		if(!target.primary.Find(ED))
-			return 0
-
-/datum/edu/school
-	name = "elementary school"
-	var/desc = "4 класса начальной школы"
-	var/full_desc = ""
-	var/duration = 48
-	var/list/compatible_profs = list()
-	var/list/preset_skills = list()
-
-/datum/edu/school/medium
-	name = "medium school"
-	var/desc = "9 классов средней школы"
-	var/full_desc = ""
-	var/duration = 108
-	var/list/compatible_profs = list()
-	var/list/preset_skills = list()
-
-/datum/edu/school/high
-	name = "medium school"
-	var/desc = "9 классов средней школы"
-	var/full_desc = ""
-	var/duration = 108
-	var/list/compatible_profs = list()
-	var/list/preset_skills = list()
+	return 1
