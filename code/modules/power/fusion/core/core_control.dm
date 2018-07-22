@@ -68,6 +68,7 @@
 			dat += {"
 				<b>Approximate field diameter (m):</b> [cur_viewed_device.owned_field.size]<br>
 				<b>Field instability:</b> [cur_viewed_device.owned_field.percent_unstable * 100]%<br>
+				<A href='?src=\ref[src];refresh=1'>Refresh</A><br>
 				<b>Plasma temperature:</b> [cur_viewed_device.owned_field.plasma_temperature + 295]K<hr>
 				<b>Fuel:</b><br>
 				<table><tr><th><b>Name</b></th><th><b>Amount</b></th></tr>
@@ -167,6 +168,7 @@
 			cur_viewed_device.set_strength(cur_viewed_device.field_strength + val)
 		updateUsrDialog()
 		return 1
+	updateUsrDialog()
 
 //Returns 1 if the machine can be interacted with via this console.
 /obj/machinery/computer/fusion_core_control/proc/check_core_status(var/obj/machinery/power/fusion_core/C)
