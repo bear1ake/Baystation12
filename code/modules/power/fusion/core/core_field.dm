@@ -89,17 +89,6 @@
 
 	// Take some gas up from our environment.
 	var/added_particles = FALSE
-	var/datum/gas_mixture/uptake_gas = owned_core.loc.return_air()
-	if(uptake_gas)
-		uptake_gas = uptake_gas.remove_by_flag(XGM_GAS_FUSION_FUEL, rand(50,100))
-	if(uptake_gas && uptake_gas.total_moles)
-		for(var/gasname in uptake_gas.gas)
-			if(uptake_gas.gas[gasname]*10 > reactants[gasname])
-				AddParticles(gasname, uptake_gas.gas[gasname]*10)
-				uptake_gas.adjust_gas(gasname, -(uptake_gas.gas[gasname]), update=FALSE)
-				added_particles = TRUE
-		if(added_particles)
-			uptake_gas.update_values()
 
 	//let the particles inside the field react
 	React()
@@ -250,24 +239,6 @@
 		reactants[name] = quantity
 
 /obj/effect/fusion_em_field/proc/RadiateAll(var/ratio_lost = 1)
-
-	// Create our plasma field and dump it into our environment.
-	var/turf/T = get_turf(src)
-	if(istype(T))
-		var/datum/gas_mixture/plasma
-		for(var/reactant in reactants)
-			if(!gas_data.name[reactant])
-				continue
-			if(!plasma)
-				plasma = new
-			plasma.adjust_gas(reactant, max(1,round(reactants[reactant]*0.1)), 0) // *0.1 to compensate for *10 when uptaking gas.
-		if(!plasma)
-			return
-		plasma.temperature = (plasma_temperature/2)
-		plasma.update_values()
-		T.assume_air(plasma)
-		T.hotspot_expose(plasma_temperature)
-		plasma = null
 
 	// Radiate all our unspent fuel and energy.
 	for(var/particle in reactants)
