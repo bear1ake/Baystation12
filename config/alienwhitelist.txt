@@ -16,10 +16,10 @@ nikita588 - machine
 mrnicolas - machine
 lunkydunk - machine
 skonoplich - machine
+coltrane97 - machine
 wheatley2013 - machine
 redknighthero - machine
 kotovsyndrome - machine
-coltrane97 - machine
 inubashirimomiji - skrell
 twinindifferent - skrell
 wheatley2013 - skrell
@@ -33,6 +33,11 @@ lukecage - skrell
 hodovoy - skrell
 taushai - skrell
 knayu - skrell
+cre77 - resomi
+taushai - resomi
+netreson - resomi
+kirill1243 - resomi
+coldmantis13 - resomi
 redknighthero - giant armoured serpentid
 coldmantis13 - giant armoured serpentid
 kirill1243 - giant armoured serpentid
@@ -54,6 +59,7 @@ sosiskoed - diona
 gumboldty - diona
 vankoska - diona
 maxi2000 - diona
+sfd - diona
 wheatley2013 - vox
 wolforbykot - vox
 sosiskoed - vox
@@ -83,6 +89,6 @@ selles - tajaran
 logfol - tajaran
 denmag - tajaran
 solark - tajaran
-forrya - tajaran
 arhod - tajaran
+forrya - tajaran
 redknighthero - bionic
