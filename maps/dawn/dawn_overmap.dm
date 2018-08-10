@@ -1,16 +1,16 @@
 /datum/map/overmap_example
-	name = "Bearcat"
-	full_name = "Bearcat"
+	name = "Dawn"
+	full_name = "W-TSV Dawn"
 	path = "overmap_example"
 
-	station_name  = "FTV Bearcat"
+	station_name  = "W-TSV Dawn"
 	station_short = "Bearcat"
 
-	dock_name     = "FTS Capitalist's Rest"
-	boss_name     = "FTU Merchant Navy"
-	boss_short    = "Merchant Admiral"
-	company_name  = "Legit Cargo Ltd."
-	company_short = "LC"
+	dock_name     = "TBS"
+	boss_name     = "Ward-Takahashi Expedition Office"
+	boss_short    = "Expedition Office"
+	company_name  = "Ward-Takahashi GMB"
+	company_short = "W-T"
 	overmap_event_areas = 11
 /*
 	station_levels = list(1,2,3)
@@ -18,7 +18,7 @@
 	admin_levels = list(6)
 */
 	evac_controller_type = /datum/evacuation_controller/lifepods
-	lobby_icon = 'maps/bearcat_inf/bearcat_lobby.dmi'
+	lobby_icon = 'maps/dawn/dawn_lobby.dmi'
 	lobby_screens = list("spess","aesthetic")
 
 	allowed_spawns = list("Cryogenic Storage")
@@ -34,8 +34,8 @@
 
 	emergency_shuttle_recall_message = "Attention all hands: emergency evacuation sequence aborted. Return to normal operating conditions."
 
-	starting_money = 5000
-	department_money = 0
+	starting_money = 7200
+	department_money = 600
 	salary_modifier = 0.2
 
 /datum/map/overmap_example/map_info(victim)

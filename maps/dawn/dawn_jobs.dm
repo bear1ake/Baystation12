@@ -7,7 +7,7 @@
 
 /datum/job/captain/equip(var/mob/living/carbon/human/H)
 	. = ..()
-	if(H.client)
+/*	if(H.client)
 		H.client.verbs += /client/proc/rename_ship
 		H.client.verbs += /client/proc/rename_company
 
@@ -40,7 +40,7 @@
 			GLOB.using_map.company_short = company_s
 		command_announcement.Announce("Congratulations to all employes of [capitalize(GLOB.using_map.company_name)] on the new name. The rebranding have changed the [GLOB.using_map.company_short] market value by [0.01*rand(-10,10)]%.", "Company name change approved")
 	verbs -= /client/proc/rename_company
-
+*/
 /datum/job/captain/get_access()
 	return get_all_station_access()
 

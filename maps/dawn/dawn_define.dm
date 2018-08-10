@@ -1,12 +1,12 @@
-/obj/effect/overmap/ship/bearcat
-	name = "FTV Bearcat"
-	color = "#00ffff"
+/obj/effect/overmap/ship/dawn
+	name = "W-TSV 'Dawn'"
+	color = "#000000"
 	start_x = 4
 	start_y = 4
 	base = 1
 	vessel_mass = 60
-	default_delay = 3 MINUTES
-	speed_mod = 0.1 MINUTE
+	default_delay = 20 SECONDS
+	speed_mod = 5 SECONDS
 	burn_delay = 10 SECONDS
 
 	generic_waypoints = list(
@@ -19,5 +19,5 @@
 		)
 
 	restricted_waypoints = list(
-		"Exploration Pod" = list("nav_bearcat_starboard_dock_pod"), //pod can only dock starboard-side, b/c there's only one door.
+		"Exploration Pod" = list("nav_dawn_starboard_dock_pod"), //pod can only dock starboard-side, b/c there's only one door.
 	)

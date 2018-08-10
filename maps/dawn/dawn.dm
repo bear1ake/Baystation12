@@ -1,15 +1,15 @@
 #if !defined(using_map_DATUM)
-	#include "bearcat_areas.dm"
-	#include "bearcat_overmap.dm"
-	#include "bearcat_define.dm"
-	#include "bearcat_jobs.dm"
-	#include "bearcat_loadouts.dm"
-	#include "bearcat_unit_testing.dm"
-	#include "bearcat_shuttles.dm"
-	#include "bearcat-1.dmm"
-	#include "bearcat-2.dmm"
-	#include "bearcat-3.dmm"
-	#include "bearcat-4.dmm"
+	#include "dawn_areas.dm"
+	#include "dawn_overmap.dm"
+	#include "dawn_define.dm"
+	#include "dawn_jobs.dm"
+	#include "dawn_loadouts.dm"
+	#include "dawn_unit_testing.dm"
+	#include "dawn_shuttles.dm"
+	#include "dawn-1.dmm"
+	#include "dawn-2.dmm"
+	#include "dawn-3.dmm"
+	#include "dawn-4.dmm"
 
 	#define using_map_DATUM /datum/map/overmap_example
 
