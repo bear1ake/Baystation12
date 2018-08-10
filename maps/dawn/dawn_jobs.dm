@@ -3,7 +3,7 @@
 
 /datum/job/captain
 	supervisors = "the Merchant Code and your conscience"
-	outfit_type = /decl/hierarchy/outfit/job/bearcat/captain
+	outfit_type = /decl/hierarchy/outfit/job/dawn/captain
 
 /datum/job/captain/equip(var/mob/living/carbon/human/H)
 	. = ..()
@@ -20,7 +20,7 @@
 		return
 	GLOB.using_map.station_short = ship
 	GLOB.using_map.station_name = "FTV [ship]"
-	var/obj/effect/overmap/ship/bearcat/B = locate() in world
+	var/obj/effect/overmap/ship/dawn/B = locate() in world
 	if(B)
 		B.name = GLOB.using_map.station_name
 	command_announcement.Announce("Attention all hands on [GLOB.using_map.station_name]! Thank you for your attention.", "Ship re-christened")
@@ -48,12 +48,12 @@
 	title = "Chief Engineer"
 	supervisors = "the Captain"
 	department_flag = ENG
-	outfit_type = /decl/hierarchy/outfit/job/bearcat/chief_engineer
+	outfit_type = /decl/hierarchy/outfit/job/dawn/chief_engineer
 
 /datum/job/doctor
 	title = "Doctor"
 	supervisors = "the Captain and your idea of Hippocratic Oath"
-	outfit_type = /decl/hierarchy/outfit/job/bearcat/doc
+	outfit_type = /decl/hierarchy/outfit/job/dawn/doc
 	alt_titles = list(
 		"Surgeon")
 	total_positions = 2
@@ -63,7 +63,7 @@
 /datum/job/hop
 	title = "First Mate"
 	supervisors = "the Captain and the Merchant Code"
-	outfit_type = /decl/hierarchy/outfit/job/bearcat/mate
+	outfit_type = /decl/hierarchy/outfit/job/dawn/mate
 	hud_icon = "hudheadofpersonnel"
 	access = list(access_security, access_sec_doors, access_brig, access_forensics_lockers,
 			            access_medical, access_engine, access_change_ids, access_ai_upload, access_eva, access_heads,
@@ -74,18 +74,18 @@
 /datum/job/bartender
 	title = "Bartender"
 	supervisors = "the Captain"
-	outfit_type = /decl/hierarchy/outfit/job/bearcat/bartender
+	outfit_type = /decl/hierarchy/outfit/job/dawn/bartender
 	total_positions = 1
 	spawn_positions = 1
 
 /datum/job/assistant
 	title = "Deck Hand"
 	supervisors = "Quartermaster, the Captain and the First Mate"
-	outfit_type = /decl/hierarchy/outfit/job/bearcat/hand
+	outfit_type = /decl/hierarchy/outfit/job/dawn/hand
 	alt_titles = list(
-		"Steward" = /decl/hierarchy/outfit/job/bearcat/hand/cook,
+		"Steward" = /decl/hierarchy/outfit/job/dawn/hand/cook,
 		"Cargo Hand",
-		"Digger" = /decl/hierarchy/outfit/job/bearcat/hand/digger,
+		"Digger" = /decl/hierarchy/outfit/job/dawn/hand/digger,
 		)
 	hud_icon = "hudcargotechnician"
 
@@ -100,7 +100,7 @@
 /datum/job/roboticist
 	title = "Roboticist"
 	supervisors = "your mad brain and the Captain."
-	outfit_type = /decl/hierarchy/outfit/job/bearcat/roboticist
+	outfit_type = /decl/hierarchy/outfit/job/dawn/roboticist
 	total_positions = 1
 	spawn_positions = 1
 	alt_titles = null
@@ -108,14 +108,14 @@
 /datum/job/qm
 	title = "Quartermaster"
 	supervisors = "your greed, the Captain and the First Mate."
-	outfit_type = /decl/hierarchy/outfit/job/bearcat/qm
+	outfit_type = /decl/hierarchy/outfit/job/dawn/qm
 	total_positions = 1
 	spawn_positions = 1
 
 /datum/job/officer
 	title = "Security"
 	supervisors = "the Captain and his laws."
-	outfit_type = /decl/hierarchy/outfit/job/bearcat/security
+	outfit_type = /decl/hierarchy/outfit/job/dawn/security
 	total_positions = 1
 	spawn_positions = 1
 	alt_titles = list(
@@ -124,7 +124,7 @@
 
 /datum/job/cyborg
 	supervisors = "your laws and the Captain"
-	outfit_type = /decl/hierarchy/outfit/job/bearcat/hand/engine
+	outfit_type = /decl/hierarchy/outfit/job/dawn/hand/engine
 	total_positions = 1
 	spawn_positions = 1
 
@@ -132,15 +132,15 @@
 // OUTFITS
 #define BEARCAT_OUTFIT_JOB_NAME(job_name) ("Bearcat - Job - " + job_name)
 
-/decl/hierarchy/outfit/job/bearcat/
-	hierarchy_type = /decl/hierarchy/outfit/job/bearcat
+/decl/hierarchy/outfit/job/dawn/
+	hierarchy_type = /decl/hierarchy/outfit/job/dawn
 	pda_type = null
 	pda_slot = slot_l_store
 	l_pocket = /obj/item/weapon/storage/wallet/poly
 	l_ear = null
 	r_ear = null
 
-/decl/hierarchy/outfit/job/bearcat/captain
+/decl/hierarchy/outfit/job/dawn/captain
 	name = BEARCAT_OUTFIT_JOB_NAME("Captain")
 	uniform = /obj/item/clothing/under/casual_pants/classicjeans
 	shoes = /obj/item/clothing/shoes/black
@@ -149,7 +149,7 @@
 	id_type = /obj/item/weapon/card/id/gold
 
 
-/decl/hierarchy/outfit/job/bearcat/captain/post_equip(var/mob/living/carbon/human/H)
+/decl/hierarchy/outfit/job/dawn/captain/post_equip(var/mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
@@ -159,7 +159,7 @@
 		else
 			qdel(eyegore)
 
-/decl/hierarchy/outfit/job/bearcat/chief_engineer
+/decl/hierarchy/outfit/job/dawn/chief_engineer
 	name = BEARCAT_OUTFIT_JOB_NAME("Chief Engineer")
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	glasses = /obj/item/clothing/glasses/welding/superior
@@ -173,14 +173,14 @@
 	r_pocket = /obj/item/device/radio
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 
-/decl/hierarchy/outfit/job/bearcat/doc
+/decl/hierarchy/outfit/job/dawn/doc
 	name = BEARCAT_OUTFIT_JOB_NAME("Doctor")
 	uniform = /obj/item/clothing/under/det/black
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	glasses = /obj/item/clothing/glasses/hud/health
 	shoes = /obj/item/clothing/shoes/laceup
 
-/decl/hierarchy/outfit/job/bearcat/mate
+/decl/hierarchy/outfit/job/dawn/mate
 	name = BEARCAT_OUTFIT_JOB_NAME("First Mate")
 	uniform = /obj/item/clothing/under/suit_jacket/checkered
 	shoes = /obj/item/clothing/shoes/laceup
@@ -188,7 +188,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	l_hand = /obj/item/weapon/clipboard
 
-/decl/hierarchy/outfit/job/bearcat/roboticist
+/decl/hierarchy/outfit/job/dawn/roboticist
 	name = BEARCAT_OUTFIT_JOB_NAME("Roboticist")
 	uniform = /obj/item/clothing/under/rank/roboticist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
@@ -196,14 +196,14 @@
 	glasses = /obj/item/clothing/glasses/welding
 	belt = /obj/item/weapon/storage/belt/utility
 
-/decl/hierarchy/outfit/job/bearcat/roboticist/pre_equip(mob/living/carbon/human/H)
+/decl/hierarchy/outfit/job/dawn/roboticist/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.gender == "female")
 		if(prob(50))
 			uniform = /obj/item/clothing/under/rank/roboticist/skirt
 	else return
 
-/decl/hierarchy/outfit/job/bearcat/qm
+/decl/hierarchy/outfit/job/dawn/qm
 	name = BEARCAT_OUTFIT_JOB_NAME("Quartermaster")
 	uniform = /obj/item/clothing/under/rank/cargo
 	shoes = /obj/item/clothing/shoes/brown
@@ -211,7 +211,7 @@
 	l_hand = /obj/item/weapon/clipboard
 	id_type = /obj/item/weapon/card/id/cargo/head
 
-/decl/hierarchy/outfit/job/bearcat/security
+/decl/hierarchy/outfit/job/dawn/security
 	name = BEARCAT_OUTFIT_JOB_NAME("Security")
 	uniform = /obj/item/clothing/under/syndicate
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -223,7 +223,7 @@
 	suit = /obj/item/clothing/suit/armor/pcarrier/medium
 	gloves = /obj/item/clothing/gloves/thick
 
-/obj/structure/closet/secure_closet/security/bearcat
+/obj/structure/closet/secure_closet/security/dawn
 	name = "security guard's locker"
 	req_access = list(access_brig)
 	icon_state = "sec1"
@@ -233,7 +233,7 @@
 	icon_broken = "secbroken"
 	icon_off = "secoff"
 
-/obj/structure/closet/secure_closet/security/bearcat/WillContain()
+/obj/structure/closet/secure_closet/security/dawn/WillContain()
 	return list(
 		new/datum/atom_creator/weighted(list(/obj/item/weapon/storage/backpack/security, /obj/item/weapon/storage/backpack/satchel_sec)),
 		new/datum/atom_creator/simple(/obj/item/weapon/storage/backpack/dufflebag/sec, 50),
@@ -248,37 +248,37 @@
 		/obj/item/device/holowarrant,
 	)
 
-/decl/hierarchy/outfit/job/bearcat/bartender
+/decl/hierarchy/outfit/job/dawn/bartender
 	name = BEARCAT_OUTFIT_JOB_NAME("Bartender")
 	uniform = /obj/item/clothing/under/rank/bartender
 	shoes = /obj/item/clothing/shoes/black
 	id_type = /obj/item/weapon/card/id/civilian/bartender
 	r_pocket = /obj/item/device/radio
 
-/decl/hierarchy/outfit/job/bearcat/hand
+/decl/hierarchy/outfit/job/dawn/hand
 	name = BEARCAT_OUTFIT_JOB_NAME("Deck Hand")
 
-/decl/hierarchy/outfit/job/bearcat/hand/pre_equip(mob/living/carbon/human/H)
+/decl/hierarchy/outfit/job/dawn/hand/pre_equip(mob/living/carbon/human/H)
 	..()
 	uniform = pick(list(/obj/item/clothing/under/overalls,/obj/item/clothing/under/focal,/obj/item/clothing/under/hazard,/obj/item/clothing/under/rank/cargotech,/obj/item/clothing/under/color/black,/obj/item/clothing/under/color/grey,/obj/item/clothing/under/casual_pants/track, ))
 
-/decl/hierarchy/outfit/job/bearcat/hand/cook
+/decl/hierarchy/outfit/job/dawn/hand/cook
 	name = BEARCAT_OUTFIT_JOB_NAME("Steward")
 	head = /obj/item/clothing/head/chefhat
 	suit = /obj/item/clothing/suit/chef/classic
 
-/decl/hierarchy/outfit/job/bearcat/hand/digger
+/decl/hierarchy/outfit/job/dawn/hand/digger
 	name = BEARCAT_OUTFIT_JOB_NAME("Digger")
 	uniform = /obj/item/clothing/under/rank/miner
 	r_pocket = /obj/item/device/flashlight/lantern
 	belt = /obj/item/weapon/pickaxe
 
-/decl/hierarchy/outfit/job/bearcat/hand/engine
+/decl/hierarchy/outfit/job/dawn/hand/engine
 	name = BEARCAT_OUTFIT_JOB_NAME("Junior Engineer")
 	head = /obj/item/clothing/head/hardhat
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_EXTENDED_SURVIVAL
 
-/decl/hierarchy/outfit/job/bearcat/hand/engine/pre_equip(mob/living/carbon/human/H)
+/decl/hierarchy/outfit/job/dawn/hand/engine/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(prob(50))
 		suit = /obj/item/clothing/suit/storage/hazardvest
