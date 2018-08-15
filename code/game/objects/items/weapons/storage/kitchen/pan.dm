@@ -4,6 +4,8 @@
 	desc = "..."
 	icon = 'icons/obj/kitchen/kitchen.dmi'
 	icon_state = "pan_open"
+	var/icon_open = "pan_open"
+	var/icon_on = "pan_on"
 	w_class = ITEM_SIZE_HUGE
 	max_storage_space = 40
 	var/defalut_storage_space = 40
@@ -28,6 +30,7 @@
 
 /obj/item/weapon/storage/pan/attack_hand(mob/user as mob)
 	..()
+	update_icon()
 
 /obj/item/weapon/storage/pan/examine(mob/living/user)
 	..()
@@ -35,6 +38,10 @@
 
 /obj/item/weapon/storage/pan/update_icon()
 	update_space()
+	if(locate(/obj/machinery/plate) in loc)
+		icon_state = icon_on
+	else
+		icon_state = icon_open
 	..()
 
 /obj/item/weapon/storage/pan/proc/update_space()
